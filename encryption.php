@@ -11,8 +11,8 @@ function getPublicKey()
 function getPrivateKey()
 {
     // URL: https://pub-f4f78a8f0c904b63aa27317491f0850e.r2.dev/private_key.pem
-    $privateKeyUrl = "https://pub-f4f78a8f0c904b63aa27317491f0850e.r2.dev/private_key.pem";
-    // $privateKeyUrl = "./private_key.pem";
+    // $privateKeyUrl = "https://pub-f4f78a8f0c904b63aa27317491f0850e.r2.dev/private_key.pem";
+    $privateKeyUrl = "./private_key.pem";
     $privateKeyContents = file_get_contents($privateKeyUrl);
     return $privateKeyContents;
 }

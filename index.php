@@ -4,7 +4,11 @@ include 'db.php';
 
 $id = $_GET['id'];
 if ($id) {
-  $users = $conn->query("SELECT * FROM users WHERE id = '$id'")->fetch_all(MYSQLI_ASSOC);
+  $stmt = $conn->prepare("SELECT * FROM users WHERE id = ?");
+  $stmt->bind_param("s", $id);
+  $stmt->execute();
+  $users = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+  $stmt->close();
 } else {
   $users = $conn->query("SELECT * FROM users")->fetch_all(MYSQLI_ASSOC);
 }
